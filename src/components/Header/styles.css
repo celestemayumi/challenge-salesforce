@@ -61,9 +61,14 @@ header {
   display: flex;
 }
 
+.nav a {
+  color: white;
+}
+
 .nav li {
   padding: 8px 5em;
   font-weight: 500;
+
 }
 
 .nav li:hover {
