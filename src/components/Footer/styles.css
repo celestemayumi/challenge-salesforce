@@ -1,0 +1,22 @@
+footer {
+    background-image: url(../../../public/footercloud.png);
+    background-color:#00A2E1 ;
+    background-size: cover;
+    height: 14em;
+    display: flex;
+    justify-content: space-around;
+    padding: 4em;
+    padding-top: 10em;
+}
+
+.footer-info p, a{
+    color: #04338F ;
+}
+
+.social-icons {
+    justify-content: space-between;
+    width: 7.1em;
+    display: flex;
+    color: #00A2E1;
+    font-size: 1.7em;
+}

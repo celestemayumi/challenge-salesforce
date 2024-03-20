@@ -61,12 +61,12 @@ header {
   display: flex;
 }
 
-li {
+.nav li {
   padding: 8px 5em;
   font-weight: 500;
 }
 
-li:hover {
+.nav li:hover {
   background-image: linear-gradient(to bottom, rgba(255,255,255,0), rgb(4, 131, 215));
 }
 
