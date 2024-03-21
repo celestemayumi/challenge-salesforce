@@ -12,7 +12,7 @@ const CustomerCard = (props: CustomerProps) => {
           <p className="mt-10 font-semibold	 text-lg">{props.author}</p>
         </div>
         <div className="">
-          <Image src={props.image} width={700} height={600} alt="Nuvem azul" />
+          <Image src={props.image} width={900} height={600} alt="Nuvem azul" />
         </div>
       </div>
     </>
