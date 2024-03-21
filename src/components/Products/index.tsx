@@ -17,18 +17,18 @@ const Products = ()=> {
                     ></ProductCard>
                     <ProductCard
                         image='/product2.svg'
-                        title="Pequenas Empresas"
-                        desc="Venda de forma mais inteligente e forneça suporte mais rápido em um único aplicativo."
+                        title="Vendas"
+                        desc="Feche mais negócios e acelere o crescimento com o CRM nº1."
                     ></ProductCard>
                     <ProductCard
                         image='/product3.svg'
-                        title="Pequenas Empresas"
-                        desc="Venda de forma mais inteligente e forneça suporte mais rápido em um único aplicativo."
+                        title="Atendimento"
+                        desc="Gaste menos com serviços escaláveis que os clientes adoram."
                     ></ProductCard>
                     <ProductCard
                         image='/product4.svg'
-                        title="Pequenas Empresas"
-                        desc="Venda de forma mais inteligente e forneça suporte mais rápido em um único aplicativo."
+                        title="Veja todos os produtos"
+                        desc="Descubra como nossas ofertas do Customer 360 proporcionam sucesso imediato."
                     ></ProductCard>
                 </div>
            </div>
