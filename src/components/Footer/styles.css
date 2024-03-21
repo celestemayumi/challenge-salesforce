@@ -5,8 +5,8 @@ footer {
   height: 14em;
   display: flex;
   justify-content: space-around;
-  padding: 4em;
-  padding-top: 10em;
+  padding: 10em 4em 10em 4em;
+
 }
 
 .footer-info p,
