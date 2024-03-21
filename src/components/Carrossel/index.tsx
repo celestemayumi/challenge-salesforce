@@ -6,15 +6,14 @@ const Carrossel = (props: CarrosselProps)=>{
     return(
         <>
         <div className="box">
-            <Image
-                src={props.image}
-                width={670}
-                height={60}
-                alt="Imagem do carrossel"
-            />
+            <div className="carrossel-img">
+            <img src={props.image} alt="" />
+            </div>
             <div className="content">
+                <div className="">
                 <h2>{props.title}</h2>
                 <p>{props.desc}</p>
+                </div>
                 <div className="buttons">
                     <button className="btn-blue">{props.btn}</button>
                     <button className="btn-white">Saiba Mais</button>
