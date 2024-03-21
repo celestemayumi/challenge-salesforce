@@ -1,0 +1,21 @@
+.blue-cloud {
+    background-image: url(./../../../../public/bluecloud.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: flex;
+    padding: 2em;
+
+}
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+
+.blue-cloud h2 {
+    font-size: 2em;
+    font-weight: 700;
+    font-family: 'DM Sans', sans-serif;
+}
+
+.blue-cloud p {
+    font-family: 'DM Sans', sans-serif;
+}
