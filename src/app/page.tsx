@@ -1,4 +1,5 @@
 import Carrossel from "@/components/Carrossel";
+import Products from "@/components/Products";
 
 export default function Home() {
   return (
@@ -9,6 +10,7 @@ export default function Home() {
         image="/Image.svg"
         btn="Teste Gratis"      
       ></Carrossel>
+      <Products></Products>
     </main>
   );
 }

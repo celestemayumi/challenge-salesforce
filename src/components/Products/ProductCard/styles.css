@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+
+.card {
+    background-color: #EEEEEE;
+    border-radius: 20px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    margin: 1em 1.5em 2em 2em;
+    width: 20em;
+}
+
+.card h3 {
+    color: #04338f;
+    font-weight: 700 ;
+    font-family: 'DM Sans', sans-serif;
+    margin-left: 20px;
+    font-size: 18px;
+}
+
+.card p {
+    margin: 0px 20px 10px 20px;
+    color: black;
+    font-size: 15px;
+}
+
+.card button {
+    margin: 0px 20px 20px 20px;
+    background-color: #04338f;
+    padding:5px 20px;
+    border-radius: 10px;
+}
+
