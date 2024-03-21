@@ -36,7 +36,7 @@ const Header = () => {
         <div className="search-bar">
           <input type="text" placeholder="Pesquisar..." />
           <button type="submit">
-            <i className="fas fa-search"></i>
+            <i className="fas fa-search mr-5"></i>
           </button>
         </div>
       </nav>
