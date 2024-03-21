@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
 
 .products{
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
     padding-top: 2em;
+    margin: 2px;
 }
 
 .product-box {
