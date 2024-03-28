@@ -7,7 +7,7 @@ const Footer = () => {
   return (
     <footer>
       <div className="social">
-        <Image src="/Logo.png" width={190} height={10} alt="Logo" />
+        <Image className="footerLogo" src="/Logo.png" width={190} height={10} alt="Logo" />
         <div className="social-icons">
           <i className="fa-brands fa-square-facebook"></i>
           <i className="fa-brands fa-linkedin"></i>
@@ -17,13 +17,13 @@ const Footer = () => {
         </div>
       </div>
       <div className="footer-info">
-        <p className="font-bold	">Ainda nao conhece a Salesforce?</p>
+        <p className="font-bold	">Ainda não conhece a Salesforce?</p>
         <ul>
           <li>
-            <a href="">Link 1</a>
+            <a className="links" href="">Link 1</a>
           </li>
           <li>
-            <a href="">Link 2</a>
+            <a className="links" href="">Link 2</a>
           </li>
         </ul>
       </div>
@@ -31,10 +31,10 @@ const Footer = () => {
         <p className="font-bold	">Sobre a Salesforce</p>
         <ul>
           <li>
-            <a href="">Link 1</a>
+            <a className="links" href="">Link 1</a>
           </li>
           <li>
-            <a href="">Link 2</a>
+            <a className="links" href="">Link 2</a>
           </li>
         </ul>
       </div>
@@ -42,10 +42,10 @@ const Footer = () => {
         <p className="font-bold	">Links populares</p>
         <ul>
           <li>
-            <a href="">Link 1</a>
+            <a className="links" href="">Link 1</a>
           </li>
           <li>
-            <a href="">Link 2</a>
+            <a className="links" href="">Link 2</a>
           </li>
         </ul>
       </div>
