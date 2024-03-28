@@ -6,7 +6,7 @@ const Products = ()=> {
     return(
         <>
            <div className="products">
-                <h2 className="text-center">A Salesforce ajuda voce a reduzir custos e 
+                <h2 className="text-center">A Salesforce ajuda você a reduzir custos e 
                 <br></br>
                 economizar tempo</h2>
                 <div className="product-box">   

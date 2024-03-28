@@ -19,3 +19,50 @@
 .blue-cloud p {
     font-family: 'DM Sans', sans-serif;
 }
+
+    /*Responsividade 400-600*/
+@media (min-width: 400px) and (max-width: 600px) {
+
+    .blue-cloud {
+        background-image: url(./../../../../public/blue-cloud-png.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        display: flex;
+        padding: 2em;
+        height: 19em;
+        
+    }
+
+    .clientsImg {
+        width: 600px;
+        height: 65%;
+        margin-left: 20px;
+        margin-top: 15px;
+    }
+
+    .blue-cloud h2 {
+        font-size: 20px;
+        font-weight: 700;
+        font-family: 'DM Sans', sans-serif;
+        line-height: 20px;
+        margin-bottom: -22px;
+        margin-top: 12px;
+    }
+    
+    .blue-cloud p {
+        font-family: 'DM Sans', sans-serif;
+        margin-right: 30px;
+        line-height: 12px;
+
+    }
+
+    .text-2xl {
+        font-size: 13px;
+    }
+
+    .text-lg {
+        margin-top: 15px;
+        font-size: 10px;
+    }
+
+}

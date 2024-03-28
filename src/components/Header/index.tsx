@@ -8,7 +8,7 @@ const Header = () => {
     <>
       <header>
         <div className="cloud">
-          <Image src="/Logo.png" width={280} height={10} alt="Logo" />
+          <Image className="logo-sfc" src="/Logo.png" width={280} height={10} alt="Logo" />
           <div className="login">
             <i className="fas fa-globe config"></i>
             <button className="login-bar">
@@ -33,6 +33,7 @@ const Header = () => {
             <Link href="/">Empresa</Link>
           </li>
         </ul>
+        <button className="menu-icon"/>
         <div className="search-bar">
           <input type="text" placeholder="Pesquisar..." />
           <button type="submit">
