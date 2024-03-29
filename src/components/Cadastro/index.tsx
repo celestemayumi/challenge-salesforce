@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import "./styles.css";
 
 const Cadastro = () => {
   const [nome, setNome] = useState("");
@@ -12,6 +13,9 @@ const Cadastro = () => {
 
 
   const handleClick = async () => {
+    setErro("");
+    setResposta("");
+
     const response = await fetch("http://localhost:8080/users", {
         method: "post",
         headers: {
@@ -64,25 +68,38 @@ const Cadastro = () => {
   };
 
   return (
-    <div>
+    <div className="menu">
+      <div></div>
+      <div className="cadastro">
+        <h1>Criar cadastro</h1>
+        <div>
       <label htmlFor="name">Nome</label>
       <input id = "name" onChange={nomeChange} type="text" className="border-2" />
-      <br />
+      </div>
+     <div>
       <label htmlFor="email">Email</label>
       <input id = "email" onChange={emailChange} type="text" className="border-2" />
-      <br /> <label htmlFor="senha">Senha</label>
-      <input id = "senha" onChange={senhaChange} type="text" className="border-2" />
-      <br /> <label htmlFor="telefone">Telefone</label>
+      </div>
+      <div>
+      <label htmlFor="senha">Senha</label>
+      <input id = "senha" onChange={senhaChange} type="password" className="border-2" />
+      </div>
+      <div>
+      <label htmlFor="telefone">Telefone</label>
       <input id = "telefone" onChange={telefoneChange} type="text" className="border-2" />
-      <br /> <label htmlFor="empresa">Empresa</label>
+      </div>
+      <div>
+      <label htmlFor="empresa">Empresa</label>
       <input id = "empresa" onChange={empresaChange} type="text" className="border-2" />
-      <br />
+      </div>
       <button  onClick={handleClick} 
       className="bg-slate-500 p-2">
         Enviar
       </button>
-      {erro && <p>{erro}</p>}
-      {resposta && <p>{resposta}</p>}
+      {erro && <p className="error">{erro}</p>}
+      {resposta && <p className="success">{resposta}</p>}
+      </div>
+      <div></div>
     </div>
   );
 };
