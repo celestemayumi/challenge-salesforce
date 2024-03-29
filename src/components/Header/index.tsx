@@ -11,10 +11,12 @@ const Header = () => {
           <Image className="logo-sfc" src="/Logo.png" width={280} height={10} alt="Logo" />
           <div className="login">
             <i className="fas fa-globe config"></i>
-            <button className="login-bar">
-              <p>Login</p>
-              <i className="fa-solid fa-user"></i>
-            </button>
+            <Link href="/cadastro">
+              <button className="login-bar">
+                <p>Login</p>
+                <i className="fa-solid fa-user"></i>
+              </button>
+            </Link>
           </div>
         </div>
       </header>
