@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+.plans-card{
+    background-color: #ededed;
+    border-radius: 15px;
+    display: flex;
+    padding: 2em;
+    font-family: 'DM Sans', sans-serif;
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    max-width: 16em;
+    margin-left: 10px;
+    color: #04338F;
+}
+
+.card-content h4{
+    font-weight: 700;
+    font-size: 1.5em;
+}
+
+.b {
+    color: #056BF1;
+    font-weight: 700;
+    font-size: 0.8em;
+}
+
+.card-content button.bt{
+    background-color: #056BF1;
+    color: white;
+    width: 100%;
+    padding: 8px;
+    border-radius: 7px;
+    font-size: large;
+}

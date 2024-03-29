@@ -4,6 +4,7 @@ import { CSVLink } from 'react-csv';
 import Carrossel from "@/components/Carrossel";
 import Customers from "@/components/Customers";
 import Products from "@/components/Products";
+import Plans from "@/components/Plans";
 
 export default function Home() {
   const [clicks, setClicks] = useState([]);
@@ -49,6 +50,7 @@ export default function Home() {
       ></Carrossel>
       <Products />
       <Customers />
+      <Plans />
       <CSVLink
         data={clicks}
         filename="clicks.csv"
