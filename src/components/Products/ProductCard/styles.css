@@ -32,6 +32,10 @@
 
 }
 
+.card button:hover{
+    background-color: #001d56;
+}
+
 
     /*Responsividade 400-600*/
 @media (min-width: 400px) and (max-width: 600px) {

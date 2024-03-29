@@ -11,10 +11,11 @@
 .card-content {
     display: flex;
     flex-direction: column;
-    align-items: start;
+    align-items:start;
     max-width: 16em;
     margin-left: 10px;
     color: #04338F;
+    justify-content: space-around;
 }
 
 .card-content h4{
@@ -35,4 +36,8 @@
     padding: 8px;
     border-radius: 7px;
     font-size: large;
+}
+
+.card-content button.bt:hover {
+    background-color:#0056c6;
 }

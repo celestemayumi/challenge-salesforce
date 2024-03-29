@@ -89,6 +89,7 @@ header {
   border-radius: 20px;
   outline: none;
   max-width: fit-content;
+  color:black
 }
 
 .search-bar input:focus {

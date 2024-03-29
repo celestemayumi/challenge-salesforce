@@ -39,8 +39,17 @@
     background-color: #00A2E1;
 }
 
+.btn-blue:hover {
+    background-color:#0091cb;
+    border: 2px solid #0091cb;
+}
+
 .btn-white {
     color: #00A2E1;
+}
+
+.btn-white:hover {
+    background-color: rgb(236, 236, 236);
 }
 
 .btn-white, .btn-blue {
