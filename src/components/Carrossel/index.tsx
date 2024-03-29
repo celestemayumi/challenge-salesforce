@@ -7,7 +7,11 @@ const Carrossel = (props: CarrosselProps)=>{
         <>
         <div className="box">
             <div className="carrossel-img">
-            <img src={props.image} alt="" />
+            <Image 
+            src="/Image.svg"
+            layout="fill"
+            className="image"
+            alt="Imagem do carrossel"/>
             </div>
             <div className="content">
                 <div className="">
