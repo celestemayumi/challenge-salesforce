@@ -1,5 +1,5 @@
 .plans-box {
-    display: inline;
+    display: flex;
     justify-content: space-evenly;
     margin: 20px;
 }
@@ -22,5 +22,30 @@
         font-weight: 700;
         font-size: 1.5em;
         margin-top: 15px;
+    }
+
+    .plans-box {
+        display: inline;
+        justify-content: space-evenly;
+        margin: 20px;
+    }
+}
+
+
+    /*Responsividade 600-800*/
+@media (min-width: 601px) and (max-width: 800px) {
+    
+    .planstitle {
+        color: #04338F;
+        text-align: center;
+        font-weight: 700;
+        font-size: 1.6em;
+        margin-top: 20px;
+    }
+
+    .plans-box {
+        display: inline;
+        justify-content: space-evenly;
+        margin: 20px;
     }
 }
