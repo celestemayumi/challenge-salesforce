@@ -10,7 +10,7 @@ const ProductCard = (props: ProductCard) => {
           <Image className="productsImg" src={props.image} width={250} height={200} alt="" />
         </div>
 
-        <div className="textRight">
+        <div className="products-content">
           <h3>{props.title}</h3>
           <p>{props.desc}</p>
           <button>Saiba Mais</button>

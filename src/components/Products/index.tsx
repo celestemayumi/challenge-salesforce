@@ -10,7 +10,7 @@ const Products = ()=> {
                 <br></br>
                 economizar tempo</h2>
                 <div className="product-box">
-                    <div className="pLine1">  
+                    
                         <ProductCard
                             image='/product1.svg'
                             title="Pequenas Empresas"
@@ -21,8 +21,7 @@ const Products = ()=> {
                             title="Vendas"
                             desc="Feche mais negócios e acelere o crescimento com o CRM nº1."
                         ></ProductCard>
-                    </div>
-                    <div className="pLine2">
+                    
                         <ProductCard
                             image='/product3.svg'
                             title="Atendimento"
@@ -33,7 +32,7 @@ const Products = ()=> {
                             title="Veja todos os produtos"
                             desc="Descubra como nossas ofertas do Customer 360 proporcionam sucesso imediato."
                         ></ProductCard>
-                    </div>
+                    
                 </div>
            </div>
         </>

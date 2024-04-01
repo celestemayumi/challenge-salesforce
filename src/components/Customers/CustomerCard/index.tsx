@@ -6,10 +6,10 @@ const CustomerCard = (props: CustomerProps) => {
   return (
     <>
       <div className="blue-cloud">
-        <div className="textClients">
+        <div className="clients-content">
           <h2>Conheca as historias dos nossos clientes</h2>
-          <p className="text-2xl font-light mt-10">{props.desc}</p>
-          <p className="mt-10 font-semibold	 text-lg">{props.author}</p>
+          <p className="text-2xl font-light desc">{props.desc}</p>
+          <p className="font-semibold a desc">{props.author}</p>
         </div>
         <div className="">
           <Image className="clientsImg"src={props.image} width={900} height={600} alt="Nuvem azul" />

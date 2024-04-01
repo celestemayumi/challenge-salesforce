@@ -22,50 +22,70 @@
     color: #F5F5F5;
 }
 
-    /*Responsividade 600*/
-@media (min-width: 0px) and (max-width: 600px) {
+.blue-cloud p.a {
+    font-family: 'DM Sans', sans-serif;
+    color: #F5F5F5;
+    font-size: large;
+    margin-top: 10px;
+}
 
+@media (max-width: 962px) {
     .blue-cloud {
-        background-image: url(./../../../../public/blue-cloud-png.png);
-        background-repeat: no-repeat;
+        background-image: url(./../../../../public/Subtract.svg);
         background-size: contain;
         display: flex;
-        padding: 2em;
+        padding: 1.2em;
         height: 19em;
         
     }
 
+    .blue-cloud h2 {
+        font-size: 1.6em;
+        font-weight: 700;
+        font-family: 'DM Sans', sans-serif;
+        color: #F5F5F5;
+    }
+    
+    .blue-cloud p {
+        font-size: 1.2em;
+    }
+
+    .blue-cloud p.a {
+        font-size: 0.8em;
+    }
+}
+
+    /*Responsividade 600*/
+@media (min-width: 0px) and (max-width: 600px) {
+
+    .blue-cloud {
+        background-image: url(./../../../../public/Subtract.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        height: 17em;
+        
+    }
+
     .clientsImg {
-        width: 600px;
-        height: 65%;
+        width: 100em;
+        height: 75%;
         margin-left: 20px;
         margin-top: 15px;
     }
 
     .blue-cloud h2 {
-        font-size: 20px;
+        margin-bottom: 10px;
         font-weight: 700;
-        font-family: 'DM Sans', sans-serif;
         line-height: 20px;
-        margin-bottom: -22px;
-        margin-top: 12px;
     }
     
     .blue-cloud p {
         font-family: 'DM Sans', sans-serif;
-        margin-right: 30px;
-        line-height: 12px;
-
+        line-height: 18px;
+        width: 19em;
     }
 
-    .text-2xl {
-        font-size: 13px;
-    }
-
-    .text-lg {
-        margin-top: 15px;
-        font-size: 10px;
-    }
+    
 
 }
 
@@ -74,44 +94,22 @@
 
     .blue-cloud {
         background-image: url(./../../../../public/blue-cloud-png.png);
-        background-repeat: no-repeat;
-        background-size: contain;
-        display: flex;
-        padding: 1em;
-        padding-left: 2em;
-        height: 19em;
-        
+        height: 20em;
     }
 
     .clientsImg {
-        width: 600px;
         height: 80%;
-        margin-left: 10px;
-        margin-top: 12px;
+
     }
 
     .blue-cloud h2 {
-        font-size: 22px;
-        font-weight: 700;
-        font-family: 'DM Sans', sans-serif;
+        font-size: 1.6em;
         line-height: 20px;
-        margin-bottom: -25px;
-        margin-top: 15px;
     }
     
     .blue-cloud p {
-        font-family: 'DM Sans', sans-serif;
-        margin-right: 30px;
-        line-height: 19px;
-    }
-
-    .text-2xl {
-        font-size: 15px;
-    }
-
-    .text-lg {
         margin-top: 10px;
-        font-size: 12px;
+        line-height:25px ;
     }
 
 }

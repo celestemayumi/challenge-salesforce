@@ -42,14 +42,10 @@
 @media (min-width: 0px) and (max-width: 600px) {
 
     .card {
-        background-color: #EEEEEE;
-        border-radius: 20px;
-        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
-        margin: 1em 1.5em 2em 2em;
-        width: 22em; 
+        width: 26em; 
         height: 13.5em;
         display: flex;
-        position: relative;
+        padding: 10px;
     }
     
     .productsImg {
@@ -98,50 +94,13 @@
     @media (min-width: 601px) and (max-width: 800px) {
 
         .card {
-            background-color: #EEEEEE;
-            border-radius: 20px;
-            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
-            margin: 1em 1.5em 2em 2em;
-            width: 18em; 
-            height: 16em;
-            display: inline;
-            position: relative;
+            width: 25em; 
+            height: 25em;
         }
         
         .productsImg {
-            width:120px;
-            height: 150px;
-            margin-top: -10px;
-        }
-    
-        .textRight h3 {
-            color: #04338f;
-            font-weight: 700;
-            font-family: 'DM Sans', sans-serif;
-            margin-left: 20px;
-            margin-top: -15px;
-            font-size: 14px;
-            
-        }
-    
-        .textRight p {
-            margin: 1px 10px -5px 10px;
-            color: black;
-            font-size: 10px;
-            min-height: 6em;
-            margin-left: 20px;
-            margin-right: 20px;
-        }
-    
-        .textRight button {
-            margin: 0px 20px 20px 20px;
-            background-color: #04338f;
-            font-size: 12px;
-            padding: 2px 2px;
-            height: 30px;
-            width: 100px;
-            border-radius: 5px;
-            
+            width:200px;
+            height: 200px;
         }
     
     }

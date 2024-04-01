@@ -12,6 +12,11 @@
     margin-top: 15px;
 }
 
+@media(max-width: 962px){
+    .plans-box{
+        flex-wrap: wrap;
+    }
+}
 
     /*Responsividade 600*/
 @media (min-width: 0px) and (max-width: 600px) {

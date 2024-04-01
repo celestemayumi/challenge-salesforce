@@ -87,17 +87,16 @@
     }
 
     .box h2 {
-        color: #04338F;
         font-weight: 800;
-        font-size: 19px;
+        font-size: 1.8em;
         font-family: "DM Sans", sans-serif;
         text-align: right;
         float: right;
-        width: 300px;
+        width: 100%;
     }
 
     .box p {
-        font-size: 12.5px;
+        font-size: 1.2em;
         line-height: 18px;
         text-align: right;
         float: right;
@@ -107,7 +106,7 @@
 
     .image{
         position: relative;
-        opacity: 50%;
+        opacity: 30%;
     }
 
     .carrossel-img {
