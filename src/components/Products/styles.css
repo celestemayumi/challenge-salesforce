@@ -21,8 +21,8 @@
 }
 
 
-    /*Responsividade 400-600*/
-@media (min-width: 400px) and (max-width: 600px) {
+    /*Responsividade 600*/
+@media (min-width: 0px) and (max-width: 600px) {
 
     .products{
         box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
@@ -46,3 +46,37 @@
 
     
 }
+
+    /*Responsividade 600-800*/
+    @media (min-width: 601px) and (max-width: 800px) {
+
+        .products{
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+            padding-top: 2em;
+            margin: 2px;
+        }
+        
+        .pLine1 {
+            display: flex;
+        }
+
+        .pLine2 {
+            display: flex;
+        }
+
+        .product-box {
+            display: list-item;
+            padding: 1.5em;
+        }
+        
+        .products h2{
+            color: #04338f;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            margin-right: 10px;
+            margin-left: 10px;
+        }
+    
+        
+    }

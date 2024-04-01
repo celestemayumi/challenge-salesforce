@@ -20,8 +20,8 @@
     font-family: 'DM Sans', sans-serif;
 }
 
-    /*Responsividade 400-600*/
-@media (min-width: 400px) and (max-width: 600px) {
+    /*Responsividade 600*/
+@media (min-width: 0px) and (max-width: 600px) {
 
     .blue-cloud {
         background-image: url(./../../../../public/blue-cloud-png.png);
@@ -63,6 +63,53 @@
     .text-lg {
         margin-top: 15px;
         font-size: 10px;
+    }
+
+}
+
+/*Responsividade 600-800*/
+@media (min-width: 601px) and (max-width: 800px) {
+
+    .blue-cloud {
+        background-image: url(./../../../../public/blue-cloud-png.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        display: flex;
+        padding: 1em;
+        padding-left: 2em;
+        height: 19em;
+        
+    }
+
+    .clientsImg {
+        width: 600px;
+        height: 80%;
+        margin-left: 10px;
+        margin-top: 12px;
+    }
+
+    .blue-cloud h2 {
+        font-size: 22px;
+        font-weight: 700;
+        font-family: 'DM Sans', sans-serif;
+        line-height: 20px;
+        margin-bottom: -25px;
+        margin-top: 15px;
+    }
+    
+    .blue-cloud p {
+        font-family: 'DM Sans', sans-serif;
+        margin-right: 30px;
+        line-height: 19px;
+    }
+
+    .text-2xl {
+        font-size: 15px;
+    }
+
+    .text-lg {
+        margin-top: 10px;
+        font-size: 12px;
     }
 
 }

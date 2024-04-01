@@ -41,3 +41,130 @@
 .card-content button.bt:hover {
     background-color:#0056c6;
 }
+
+
+    /*Responsividade 600*/
+@media (min-width: 0px) and (max-width: 600px) {
+    
+.plans-card{
+    background-color: #ededed;
+    border-radius: 15px;
+    display: flex;
+    padding: 2em;
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-family: 'DM Sans', sans-serif;
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    align-items:start;
+    max-width: 16em;
+    margin-left: 10px;
+    color: #04338F;
+    justify-content: space-around;
+}
+
+.card-content h4{
+    font-weight: 700;
+    font-size: 1.3em;
+}
+
+.font-medium {
+    font-size: 13px;
+    margin-top: -15px;
+    margin-bottom: 10px;
+}
+
+.b {
+    color: #056BF1;
+    font-weight: 700;
+    font-size: 0.8em;
+}
+
+.b:hover {
+    color: #0056c6;
+}
+
+.card-content button.bt{
+    background-color: #056BF1;
+    color: white;
+    width: 120px;
+    padding: 5px;
+    border-radius: 7px;
+    font-size: 15px;
+    margin-top: 15px;
+}
+
+.card-content button.bt:hover {
+    background-color:#0056c6;
+}
+
+}
+
+/*Responsividade 600-800*/
+@media (min-width: 601px) and (max-width: 800px) {
+    
+    .plans-card{
+        background-color: #ededed;
+        border-radius: 15px;
+        display: flex;
+        padding: 2em;
+        margin-top: 20px;
+        margin-left: 10px;
+        margin-right: 10px;
+        font-family: 'DM Sans', sans-serif;
+    }
+    
+    .card-content {
+        display: flex;
+        flex-direction: column;
+        align-items:start;
+        max-width: 16em;
+        margin-left: 10px;
+        color: #04338F;
+        justify-content: space-around;
+    }
+    
+    .card-content h4{
+        font-weight: 700;
+        font-size: 1.3em;
+        margin-left: 15px;
+    }
+    
+    .font-medium {
+        font-size: 13px;
+        margin-top: -15px;
+        margin-bottom: 10px;
+        margin-left: 15px;
+    }
+    
+    .b {
+        color: #056BF1;
+        font-weight: 700;
+        font-size: 0.8em;
+        margin-left: 15px;
+    }
+    
+    .b:hover {
+        color: #0056c6;
+    }
+    
+    .card-content button.bt{
+        background-color: #056BF1;
+        color: white;
+        width: 120px;
+        padding: 5px;
+        border-radius: 7px;
+        font-size: 15px;
+        margin-top: 15px;
+        margin-left: 15px;
+    }
+    
+    .card-content button.bt:hover {
+        background-color:#0056c6;
+    }
+    
+}

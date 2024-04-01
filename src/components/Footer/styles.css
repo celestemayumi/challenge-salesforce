@@ -23,8 +23,8 @@ a {
 }
 
 
-  /*Responsividade 400-600*/
-@media (min-width: 400px) and (max-width: 600px) {
+  /*Responsividade 600*/
+@media (min-width: 0px) and (max-width: 600px) {
 
   footer {
     background-image: url(../../../public/footercloud.png);
@@ -73,6 +73,60 @@ a {
     color: #00a2e1;
     font-size: 1.2em;
     
+    }
+  
+  }
+
+  /*Responsividade 600-800*/
+@media (min-width: 601px) and (max-width: 800px) {
+
+  footer {
+    background-image: url(../../../public/footercloud.png);
+    background-color: #00a2e1;
+    background-size: cover;
+    height: 14em;
+    display: flex;
+    justify-content: space-around;
+    padding: 10em 3em 10em 4em;
+  }
+    
+  .footer-info p,
+    a {
+    color: #04338f;
+    }
+  
+  .footer-info {
+    margin-top: -68px;
+    margin-right: 30px;
+  }
+  
+  .font-bold {
+    font-size: 12px;
+  }
+  
+  .links {
+    font-size: 10px;
+    padding-bottom: 1px;
+  }
+  
+  .footerLogo {
+    margin-left: -2.5px;
+  }
+  
+  .social {
+    width:160px;
+    margin-left: -45px;
+    margin-top: -70px;
+    margin-right: 35px;
+  }
+  
+  .social-icons {
+    justify-content: space-between;
+    width: 5.1em;
+    display: flex;
+    color: #00a2e1;
+    font-size: 1.2em;
+    margin-left: 5px;
     }
   
   }
