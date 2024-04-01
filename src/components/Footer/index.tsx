@@ -2,6 +2,7 @@ import "./styles.css";
 import "../../../public/footercloud.png";
 import "../../../public/Logo.png";
 import Image from "next/image";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -42,7 +43,11 @@ const Footer = () => {
         <p className="font-bold	">Links populares</p>
         <ul>
           <li>
-            <a className="links" href="">Link 1</a>
+            <Link href="/desenvolvedores">
+              <button className="links">
+              Developers
+              </button>
+            </Link>
           </li>
           <li>
             <a className="links" href="">Link 2</a>
