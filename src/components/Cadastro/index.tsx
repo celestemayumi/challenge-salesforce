@@ -10,6 +10,12 @@ const Cadastro = () => {
   const [empresa, setEmpresa] = useState("");
   const [resposta, setResposta] = useState("");
   const [erro, setErro] = useState("");
+  const [className, setClassName] = useState("");
+  const [classEmail, setClassEmail] = useState("");
+  const [classSenha, setClassSenha] = useState("");
+  const [classTelefone, setClassTelefone] = useState("");
+  const [classEmpresa, setClassEmpresa] = useState("");
+
 
 
   const handleClick = async () => {
@@ -52,18 +58,43 @@ const Cadastro = () => {
   };
 
   const nomeChange = (event: any) => {
+    if(event.target.value.length < 4){
+      setClassName("valueError")
+    }else{
+      setClassName("valueSucess")
+    }
     setNome(event.target.value);
   };
   const emailChange = (event: any) => {
+    // if(event.target.value.contains("@")){
+    //   setClassEmail("valueError")
+    // }else{
+    //   setClassEmail("valueSucess")
+    // }
     setEmail(event.target.value);
   };
   const senhaChange = (event: any) => {
+    // if(event.target.value.length < 4){
+    //   setClassSenha("valueError")
+    // }else{
+    //   setClassSenha("valueSucess")
+    // }
     setSenha(event.target.value);
   };
   const telefoneChange = (event: any) => {
+    // if(event.target.value.length < 4){
+    //   setClassTelefone("valueError")
+    // }else{
+    //   setClassTelefone("valueSucess")
+    // }
     setTelefone(event.target.value);
   };
   const empresaChange = (event: any) => {
+    // if(event.target.value.length < 4){
+    //   setClassEmpresa("valueError")
+    // }else{
+    //   setClassEmpresa("valueSucess")
+    // }
     setEmpresa(event.target.value);
   };
 
@@ -74,23 +105,23 @@ const Cadastro = () => {
         <h1>Criar cadastro</h1>
         <div>
       <label htmlFor="name">Nome</label>
-      <input id = "name" onChange={nomeChange} type="text" className="border-2" />
+      <input id = "name" onChange={nomeChange} type="text" className={className} />
       </div>
      <div>
       <label htmlFor="email">Email</label>
-      <input id = "email" onChange={emailChange} type="text" className="border-2" />
+      <input id = "email" onChange={emailChange} type="email" className={classEmail} />
       </div>
       <div>
       <label htmlFor="senha">Senha</label>
-      <input id = "senha" onChange={senhaChange} type="password" className="border-2" />
+      <input id = "senha" onChange={senhaChange} type="password" className={classSenha} />
       </div>
       <div>
       <label htmlFor="telefone">Telefone</label>
-      <input id = "telefone" onChange={telefoneChange} type="text" className="border-2" />
+      <input id = "telefone" onChange={telefoneChange} type="text" className={classTelefone} />
       </div>
       <div>
       <label htmlFor="empresa">Empresa</label>
-      <input id = "empresa" onChange={empresaChange} type="text" className="border-2" />
+      <input id = "empresa" onChange={empresaChange} type="text" className={classEmpresa} />
       </div>
       <button  onClick={handleClick} 
       className="bg-slate-500 p-2">

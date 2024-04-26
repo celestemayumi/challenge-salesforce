@@ -30,6 +30,7 @@
     color: white;
 }
 .cadastro input{
+    outline: none;
     border-radius: 10px;
     padding: 8px 25px;
 }
@@ -55,4 +56,11 @@
 }
 .success{
     color: green;
+}
+.valueError:focus {
+    border:1px solid red;
+}
+.valueSucess:focus{  
+    border:1px solid green;
+
 }
