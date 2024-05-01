@@ -1,8 +1,9 @@
 'use client';
 
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import { useState, useEffect } from "react";
-
+import "./styles.css";
+const router = useRouter;
 
 interface User{
     email: string,
@@ -18,12 +19,8 @@ const Login = () => {
   const [erro, setErro] = useState("");
   const router = useRouter();
   
-  useEffect(() => {
-  const handleRedirect = () => {
-    const router = require('next/router').default;
-    return router;
-  };
-  const handleSubmit = async ()=> {
+const handleSubmit = async ()=> {
+    setErro("");
     const response = await fetch("http://localhost:8080/users", {
         method: "get"
      });
@@ -39,12 +36,14 @@ const Login = () => {
      if (userFound) {
         console.log("user validado")
         // Redireciona o usuário para uma página de sucesso
-        const router = handleRedirect();
         router.push('/logged');
+    }
+    else{
+      setErro("Email ou senha incorretos")
     }
 
  };
-}, [email, senha]);
+
   const emailChange = (event: any) => {
     setEmail(event.target.value);
   };
@@ -68,11 +67,11 @@ const Login = () => {
     </div>
 
     <button 
-    //  onClick={handleSubmit} 
+    onClick={handleSubmit} 
     className="bg-slate-500 p-2">
       Enviar
     </button>
- 
+    {erro && <p className="error">{erro}</p>}
     </div>
     <div></div>
   </div>
