@@ -1,5 +1,9 @@
-export default function Logged() {
-    return (
-        <h1>Logado com sucesso!!!!</h1>
-    );
+import Logged from "@/components/Logged";
+const LoggedPage = () => {
+    return(
+       <main>
+        <Logged/>
+        </main>
+    )
 }
+export default LoggedPage;

@@ -11,11 +11,18 @@
     flex-direction: column;
     align-items: center;
     background-color: #04338F;
-    padding: 20px ;
+    padding: 2% ;
     border-radius: 30px;
-    margin: 35px;
+    margin: 5%;
+    padding-bottom: 5%;
 }
-.cadastro div{
+.form{
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    justify-content: center;
+}
+.form div{
     display: flex;
     flex-direction: column;
     margin: 13px;
@@ -38,8 +45,11 @@
     color: white;
     border-radius: 5px;
     background-color: rgb(103, 161, 232);
-    margin: 25px;
-    padding: 10px 111.5px;
+    width: 266px;
+    height: 40px;
+    margin-inline: 13px;
+    margin-top: 44px;
+    /* padding: 10px 111.5px; */
 }
 .cadastro button:hover{
     background-color:  rgb(93, 145, 208);

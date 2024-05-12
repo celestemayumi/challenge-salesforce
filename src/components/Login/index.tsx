@@ -2,20 +2,12 @@
 
 import { useRouter } from 'next/navigation';
 import { useState, useEffect } from "react";
+import User from "./interfaces";
 import "./styles.css";
-const router = useRouter;
 
-interface User{
-    email: string,
-    empresa: string,
-    nome: string,
-    senha: string,
-    telefone: string
-}
 const Login = () => {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
-  const [resposta, setResposta] = useState("");
   const [erro, setErro] = useState("");
   const router = useRouter();
   
@@ -25,21 +17,14 @@ const handleSubmit = async ()=> {
         method: "get"
      });
      const data = await response.json();
-    
-     let userFound = false;
-     data.forEach((item: any) => {
-        if (item.email === email && item.senha === senha) {
-          userFound = true;
-        }
-     });
-    
-     if (userFound) {
-        console.log("user validado")
-        // Redireciona o usuário para uma página de sucesso
-        router.push('/logged');
-    }
-    else{
-      setErro("Email ou senha incorretos")
+    console.log(data);
+     const user = data.find((item: User) => item.email === email && item.senha === senha);
+    console.log(user);
+    if (user) {
+      console.log("Usuário validado");
+      router.push('/logged');
+    } else {
+      setErro("Email ou senha incorretos");
     }
 
  };
@@ -59,7 +44,7 @@ const handleSubmit = async ()=> {
       <h1>Realizar Login</h1>
    <div>
     <label htmlFor="email">Email</label>
-    <input id = "email" onChange={emailChange} type="text" className="border-2" />
+    <input id = "email" onChange={emailChange} type="email" className="border-2" />
     </div>
     <div>
     <label htmlFor="senha">Senha</label>

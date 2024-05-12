@@ -103,6 +103,7 @@ const Cadastro = () => {
       <div></div>
       <div className="cadastro">
         <h1>Criar cadastro</h1>
+        <div className="form">
         <div>
       <label htmlFor="name">Nome</label>
       <input id = "name" onChange={nomeChange} type="text" className={className} />
@@ -127,6 +128,7 @@ const Cadastro = () => {
       className="bg-slate-500 p-2">
         Enviar
       </button>
+      </div>
       {erro && <p className="error">{erro}</p>}
       {resposta && <p className="success">{resposta}</p>}
       </div>
