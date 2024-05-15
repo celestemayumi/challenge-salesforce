@@ -2,6 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
+import { tokenService } from "@/services/tokenService";
 import User from "./interfaces";
 import "./styles.css";
 
@@ -32,10 +33,9 @@ const Login = () => {
         message = "Erro desconhecido ao processar a resposta do servidor.";
       }
     } else {
-      const data = await response.text();
-      console.log(data);
-      // tokenService.save(body.data.access_token);
-
+      const idLogin = await response.text();
+      const token = idLogin.toString();
+      tokenService.save(token);
       router.push("/logged");
     }
   };
