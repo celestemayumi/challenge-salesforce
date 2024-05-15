@@ -1,0 +1,44 @@
+.logged{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #00a2e1;
+}
+
+.options{
+    width: 70%;
+    height: 110%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #04338F;
+    padding: 20px ;
+    border-radius: 30px;
+    margin: 35px;
+}
+.options h1{
+    font-size: 30px;
+    color: white;
+    margin: 30px;
+    text-align: center;
+}
+.logged button{
+    color: white;
+    border-radius: 5px;
+    background-color: rgb(103, 161, 232);
+    margin: 15px;
+    width: 20rem;
+    height: 3rem;
+
+}
+.logged button:hover{
+    background-color:  rgb(93, 145, 208);
+}
+.logged .sair{
+    background-color: rgb(237, 69, 69);
+    width: 16em;
+
+}
+.logged .sair:hover{
+    background-color: rgb(171, 61, 61);
+}

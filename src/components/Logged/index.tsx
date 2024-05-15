@@ -1,15 +1,18 @@
-import nookies from 'nookies';
-import { tokenService } from '@/services/tokenService';
+import "./styles.css";
 
-function Logged() {
+function Logged(props: any) {
 
   return (
-    <div>
+    <div className='logged'>
+    <div className='options'>
       <h1>
-        Auth Page Server Side Render
+        Bem vindo(a) {props.name}
       </h1>
-      
-    </div>
+      <button onClick={props.view}>Visualizar dados da conta</button>
+      <button onClick={props.update}>Atualizar dados da conta</button>
+      <button onClick={props.delete}>Deletar conta</button>      
+      <button onClick={props.deslogged} className="sair">Sair</button>      
+    </div></div>
   )
 }
 
