@@ -61,6 +61,17 @@
     padding: 20px;
     margin: 20px;
 }
+.link-login{
+    margin-top: 3%;
+}
+.link-login a{
+    font-size: 1.2em;
+    color: white;
+    text-decoration: underline;
+}
+.link-login a:hover{
+    color:  #7da6f8;
+}
 .error{
     color: red;
 }

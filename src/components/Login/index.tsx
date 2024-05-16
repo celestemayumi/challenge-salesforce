@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import { tokenService } from "@/services/tokenService";
+import Link from "next/link";
 import User from "./interfaces";
 import "./styles.css";
 
@@ -50,7 +51,7 @@ const Login = () => {
   return (
     <div className="menu">
       <div></div>
-      <div className="cadastro">
+      <div className="login-component">
         <h1>Realizar Login</h1>
         <div>
           <label htmlFor="email">Email</label>
@@ -74,6 +75,9 @@ const Login = () => {
         <button onClick={handleSubmit} className="bg-slate-500 p-2">
           Enviar
         </button>
+        <div className="link-cadastro">
+          <Link href="/cadastro">Ainda não possui conta?</Link>
+        </div>
         {erro && <p className="error">{erro}</p>}
       </div>
       <div></div>
