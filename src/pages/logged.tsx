@@ -5,6 +5,7 @@ import "@/app/globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Logged from "@/components/Logged";
+import { useRouter } from "next/navigation";
 import "./styles.css/popup.css";
 function AuthPageSSR(props?: any) {
   const [userNome, setUserNome] = useState(null);
@@ -15,6 +16,7 @@ function AuthPageSSR(props?: any) {
   const [popupView, setClassPopupView] = useState("");
   const [popupUpdate, setClassPopupUpdate] = useState("");
   const [popupDelete, setClassPopupDelete] = useState("");
+  const router = useRouter();
 
   const handleClick = async () => {
     try {
@@ -30,6 +32,10 @@ function AuthPageSSR(props?: any) {
     } catch (error) {
       console.error("Error fetching user data:", error);
     }
+  };
+  const deslogged = () => {
+    tokenService.delete();
+    router.push("/login");
   };
   const setPopupClass = () => {
     setPopup("popup-wrapper");
@@ -64,6 +70,7 @@ function AuthPageSSR(props?: any) {
         view={setPopupView}
         update={setPopupUpdate}
         delete={setPopupUpDelete}
+        deslogged={deslogged}
       />
       <Footer />
       <div className={`${popup ? "popup-wrapper" : "none"}`}>
@@ -135,7 +142,7 @@ export async function getServerSideProps(ctx: any) {
     return {
       redirect: {
         permanent: false,
-        destination: "/cadastro",
+        destination: "/login",
       },
     };
   }
