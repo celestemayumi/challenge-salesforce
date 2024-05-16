@@ -4,7 +4,7 @@ import "./styles.css";
 function Logged(props: any) {
   const [popup, setPopup] = useState("");
   const [popupView, setClassPopupView] = useState("");
-const [popupDelete, setClassPopupDelete] = useState("");
+  const [popupDelete, setClassPopupDelete] = useState("");
 
   const setPopupClass = () => {
     setPopup("popup-wrapper");
@@ -52,7 +52,9 @@ const [popupDelete, setClassPopupDelete] = useState("");
           </div>
           <div className="popup-content" id="popup-delete">
             <p>Tem certeza que deseja deletar sua conta?</p>
-            <button className="button-delete">Sim</button>
+            <button className="button-delete" onClick={props.delete}>
+              Sim
+            </button>
           </div>
         </div>
       </div>

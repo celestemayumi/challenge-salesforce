@@ -35,6 +35,16 @@ function AuthPageSSR(props?: any) {
     tokenService.delete();
     router.push("/login");
   };
+  const deleteUser = async () => {
+    const response = await fetch(
+      "http://localhost:8080/users/" + String(props.token),
+      {
+        method: "delete",
+      }
+    );
+    tokenService.delete();
+    router.push("/login");
+  };
   const setPopupClass = () => {
     setPopup("popup-wrapper");
   };
@@ -62,6 +72,7 @@ function AuthPageSSR(props?: any) {
         email={userEmail}
         update={setPopupUpdate}
         deslogged={deslogged}
+        delete={deleteUser}
       />
       <Footer />
       <div className={`${popup ? "popup-wrapper" : "none"}`}>
@@ -72,16 +83,16 @@ function AuthPageSSR(props?: any) {
           <div className="popup-content">
             <div>
               <label htmlFor="name">Nome</label>
-              <input id="name" type="text"  className="border-2" />
+              <input id="name" type="text" className="border-2" />
             </div>
 
             <div>
               <label htmlFor="telefone">Telefone</label>
-              <input id="telefone" type="text"  className="border-2" />
+              <input id="telefone" type="text" className="border-2" />
             </div>
             <div>
               <label htmlFor="empresa">Empresa</label>
-              <input id="empresa" type="text"  className="border-2" />
+              <input id="empresa" type="text" className="border-2" />
             </div>
             <div>
               <label htmlFor="email">Email</label>
