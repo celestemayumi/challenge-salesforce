@@ -13,9 +13,7 @@ function AuthPageSSR(props?: any) {
   const [userTelefone, setUserTelefone] = useState(null);
   const [userEmail, setUserEmail] = useState(null);
   const [popup, setPopup] = useState("");
-  const [popupView, setClassPopupView] = useState("");
   const [popupUpdate, setClassPopupUpdate] = useState("");
-  const [popupDelete, setClassPopupDelete] = useState("");
   const router = useRouter();
 
   const handleClick = async () => {
@@ -42,22 +40,14 @@ function AuthPageSSR(props?: any) {
   };
   const removePopup = () => {
     setPopup("");
-    setClassPopupView("");
     setClassPopupUpdate("");
-    setClassPopupDelete("");
   };
-  const setPopupView = () => {
-    setPopupClass();
-    setClassPopupView("popup");
-  };
+
   const setPopupUpdate = () => {
     setPopupClass();
     setClassPopupUpdate("popup");
   };
-  const setPopupUpDelete = () => {
-    setPopupClass();
-    setClassPopupDelete("popup");
-  };
+
   useEffect(() => {
     handleClick();
   }, []); // Executa apenas uma vez após a montagem do componente
@@ -66,25 +56,15 @@ function AuthPageSSR(props?: any) {
     <main>
       <Header />
       <Logged
-        name={userNome}
-        view={setPopupView}
+        nome={userNome}
+        empresa={userEmpresa}
+        telefone={userTelefone}
+        email={userEmail}
         update={setPopupUpdate}
-        delete={setPopupUpDelete}
         deslogged={deslogged}
       />
       <Footer />
       <div className={`${popup ? "popup-wrapper" : "none"}`}>
-        <div className={`${popupView ? "popup" : "none"}`}>
-          <div className="popup-close">
-            <button onClick={removePopup}>x</button>
-          </div>
-          <div className="popup-content">
-            <p>Nome: {userNome}</p>
-            <p>Empresa: {userEmpresa}</p>
-            <p>Telefone: {userTelefone} </p>
-            <p>Email: {userEmail}</p>
-          </div>
-        </div>
         <div className={`${popupUpdate ? "popup" : "none"}`}>
           <div className="popup-close">
             <button onClick={removePopup}>x</button>
@@ -111,15 +91,9 @@ function AuthPageSSR(props?: any) {
               <label htmlFor="senha">Senha</label>
               <input id="senha" type="password" className="border-2" />
             </div>
-          </div>
-        </div>
-        <div className={`${popupDelete ? "popup" : "none"}`}>
-          <div className="popup-close">
-            <button onClick={removePopup}>x</button>
-          </div>
-          <div className="popup-content">
-            <p>Tem certeza que deseja deletar sua conta?</p>
-            <button>Sim</button>
+            <div>
+              <button className="button-update">Enviar</button>
+            </div>
           </div>
         </div>
       </div>
