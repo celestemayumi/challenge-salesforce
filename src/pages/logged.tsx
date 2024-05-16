@@ -72,16 +72,16 @@ function AuthPageSSR(props?: any) {
           <div className="popup-content">
             <div>
               <label htmlFor="name">Nome</label>
-              <input id="name" type="text" />
+              <input id="name" type="text"  className="border-2" />
             </div>
 
             <div>
               <label htmlFor="telefone">Telefone</label>
-              <input id="telefone" type="text" />
+              <input id="telefone" type="text"  className="border-2" />
             </div>
             <div>
               <label htmlFor="empresa">Empresa</label>
-              <input id="empresa" type="text" />
+              <input id="empresa" type="text"  className="border-2" />
             </div>
             <div>
               <label htmlFor="email">Email</label>
@@ -91,7 +91,7 @@ function AuthPageSSR(props?: any) {
               <label htmlFor="senha">Senha</label>
               <input id="senha" type="password" className="border-2" />
             </div>
-            <div>
+            <div className="div-button-update">
               <button className="button-update">Enviar</button>
             </div>
           </div>

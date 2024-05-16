@@ -66,4 +66,31 @@
     padding: 25px;
     background: white;
     position: relative;
+    border-radius: 2%;
+}
+.button-delete{
+    margin-top: 1em;
+    border: 1px solid silver;
+    border-radius: 5%;
+    padding: 0.4em 0.8em;
+    width: 70%;
+    color: white;
+    background-color:  rgb(103, 161, 232);
+}
+.button-delete:hover{
+    background-color:  rgb(93, 145, 208);
+}
+#popup-delete{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#popup-delete p{
+    padding: 0.6em;
+}
+.popup-close{
+    font-family: 'arial';
+    color: rgb(242, 52, 52);
+    font-size: 20px;
 }

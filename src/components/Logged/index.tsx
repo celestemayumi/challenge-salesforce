@@ -50,9 +50,9 @@ const [popupDelete, setClassPopupDelete] = useState("");
           <div className="popup-close">
             <button onClick={removePopup}>x</button>
           </div>
-          <div className="popup-content">
+          <div className="popup-content" id="popup-delete">
             <p>Tem certeza que deseja deletar sua conta?</p>
-            <button>Sim</button>
+            <button className="button-delete">Sim</button>
           </div>
         </div>
       </div>
