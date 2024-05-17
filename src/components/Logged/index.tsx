@@ -8,11 +8,14 @@ function Logged(props: any) {
   const [popupView, setClassPopupView] = useState("");
   const [popupUpdate, setClassPopupUpdate] = useState("");
   const [popupDelete, setClassPopupDelete] = useState("");
-  const [userNome, setUserNome] = useState(null);
-  const [userEmpresa, setUserEmpresa] = useState(null);
-  const [userTelefone, setUserTelefone] = useState(null);
-  const [userEmail, setUserEmail] = useState(null);
   const router = useRouter();
+  const [data, setData] = useState({
+    nome: "",
+    telefone: "",
+    empresa: "",
+    email: "",
+    senha: "",
+  });
   const [values, setValues] = useState({
     nome: "",
     telefone: "",
@@ -22,6 +25,30 @@ function Logged(props: any) {
   });
   const [resposta, setResposta] = useState("");
   const [erro, setErro] = useState("");
+
+  const getUserInfos = async () => {
+    setErro("");
+    try {
+      const response = await fetch(
+        "http://localhost:8080/users/" + String(props.id)
+      );
+      const data = await response.json();
+      console.log(data.nome);
+      setData({
+        nome: data.nome,
+        telefone: data.telefone,
+        empresa: data.empresa,
+        email: data.email,
+        senha: data.senha,
+      });
+    } catch (error) {
+      console.error("Error fetching user data:", error);
+    }
+  };
+
+  useEffect(() => {
+    getUserInfos();
+  }, []); // Executa apenas uma vez após a montagem do componente
 
   const userUpdate = async () => {
     setErro("");
@@ -36,59 +63,30 @@ function Logged(props: any) {
         },
         body: JSON.stringify(values),
       }
-    );
-    if (!response.ok) {
-      let message;
-
-      try {
-        message = await response.text();
-        //  if(message.)
-        console.log(message);
-        setErro(message);
-      } catch (error) {
-        console.error("Erro ao ler o corpo da resposta:", error);
-        message = "Erro desconhecido ao processar a resposta do servidor.";
-      }
-    } else {
-      let message;
-
-      try {
-        message = await response.text();
-        //  if(message.)
-        console.log(message);
-        setResposta(message);
-      } catch (error) {
-        console.error("Erro ao ler o corpo da resposta:", error);
-        message = "Erro desconhecido ao processar a resposta do servidor.";
-      }
-    }
-    getUserInfos();
+    )
+      .then((response) => {
+        if (!response.ok) {
+          return response.text().then((message) => {
+            setErro(message);
+          });
+        } else {
+          const message = response.text().then((message) => {
+            setResposta(message);
+            getUserInfos();
+          });
+        }
+      })
+      .catch((error) => {
+        console.error("Erro ao fazer a requisição:", error);
+        setErro("Erro ao fazer a requisição. Tente novamente mais tarde.");
+      });
   };
-
-  const getUserInfos = async () => {
-    try {
-      const response = await fetch(
-        "http://localhost:8080/users/" + String(props.id)
-      );
-      const data = await response.json();
-      console.log(data.nome);
-      setUserNome(data.nome);
-      setUserEmpresa(data.empresa);
-      setUserTelefone(data.telefone);
-      setUserEmail(data.email);
-    } catch (error) {
-      console.error("Error fetching user data:", error);
-    }
-  };
-
-  useEffect(() => {
-    getUserInfos();
-  }, []); // Executa apenas uma vez após a montagem do componente
 
   const setPopupClass = () => {
     setPopup("popup-wrapper");
   };
   const removePopup = () => {
+    setErro("");
     setPopup("");
     setClassPopupView("");
     setClassPopupUpdate("");
@@ -117,14 +115,21 @@ function Logged(props: any) {
     });
   };
   const deleteUser = async () => {
+    setErro("");
     const response = await fetch(
       "http://localhost:8080/users/" + String(props.id),
       {
         method: "delete",
       }
-    );
-    tokenService.delete();
-    router.push("/login");
+    )
+      .then(() => {
+        tokenService.delete();
+        router.push("/login");
+      })
+      .catch((error) => {
+        console.error("Erro ao fazer a requisição:", error);
+        setErro("Erro ao fazer a requisição. Tente novamente mais tarde.");
+      });
   };
   const deslogged = () => {
     tokenService.delete();
@@ -133,7 +138,7 @@ function Logged(props: any) {
   return (
     <div className="logged">
       <div className="options">
-        <h1>Bem vindo(a) {userNome}</h1>
+        <h1>Bem vindo(a) {data.nome}</h1>
         <button onClick={setPopupView}>Visualizar dados da conta</button>
         <button onClick={setPopupUpdate}>Atualizar dados da conta</button>
         <button onClick={setPopupUpDelete}>Deletar conta</button>
@@ -147,10 +152,10 @@ function Logged(props: any) {
             <button onClick={removePopup}>x</button>
           </div>
           <div className="popup-content">
-            <p>Nome: {userNome}</p>
-            <p>Empresa: {userEmpresa}</p>
-            <p>Telefone: {userTelefone} </p>
-            <p>Email: {userEmail}</p>
+            <p>Nome: {data.nome}</p>
+            <p>Empresa: {data.empresa}</p>
+            <p>Telefone: {data.telefone} </p>
+            <p>Email: {data.email}</p>
           </div>
         </div>
         <div className={`${popupUpdate ? "popup" : "none"}`}>
@@ -222,6 +227,7 @@ function Logged(props: any) {
             <button className="button-delete" onClick={deleteUser}>
               Sim
             </button>
+            {erro && <p className="error">{erro}</p>}
           </div>
         </div>
       </div>

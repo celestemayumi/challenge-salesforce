@@ -16,43 +16,45 @@ const Cadastro = () => {
   const [resposta, setResposta] = useState("");
   const [erro, setErro] = useState("");
   const router = useRouter();
-  const handleClick = async () => {
+  const handleClick = () => {
     setErro("");
     setResposta("");
 
-    const response = await fetch("http://localhost:8080/users", {
-      method: "post",
+    fetch("http://localhost:8080/users", {
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(values),
-    });
-    if (!response.ok) {
-      let message;
-
-      try {
-        message = await response.text();
-        console.log(message);
-        setErro(message);
-      } catch (error) {
-        console.error("Erro ao ler o corpo da resposta:", error);
-        message = "Erro desconhecido ao processar a resposta do servidor.";
-      }
-    } else {
-      const response = await fetch("http://localhost:8080/login", {
-        method: "post",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email: values.email, senha: values.senha }),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          return response.text().then((message) => {
+            setErro(message);
+          });
+        } else {
+          fetch("http://localhost:8080/login", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              email: values.email,
+              senha: values.senha,
+            }),
+          }).then((response) => {
+            const idLogin = response.text().then((message) => {
+              tokenService.save(message);
+              router.push("/logged");
+            });
+          });
+        }
+      })
+      .catch((error) => {
+        console.error("Erro ao fazer a requisição:", error);
+        setErro("Erro ao fazer a requisição. Tente novamente mais tarde.");
       });
-      const idLogin = await response.text();
-      const token = idLogin.toString();
-      tokenService.save(token);
-      router.push("/logged");
-    }
   };
-
   const handleChange = (event: any) => {
     const fieldValue = event.target.value;
     const fieldName = event.target.name;

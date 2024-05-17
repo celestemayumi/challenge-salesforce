@@ -22,24 +22,23 @@ const Login = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(values),
-    });
-
-    if (!response.ok) {
-      let message;
-      try {
-        message = await response.text();
-        console.log(message);
-        setErro(message);
-      } catch (error) {
-        console.error("Erro ao ler o corpo da resposta:", error);
-        message = "Erro desconhecido ao processar a resposta do servidor.";
-      }
-    } else {
-      const idLogin = await response.text();
-      const token = idLogin.toString();
-      tokenService.save(token);
-      router.push("/logged");
-    }
+    })
+      .then((response) => {
+        if (!response.ok) {
+          return response.text().then((message) => {
+            setErro(message);
+          });
+        } else {
+          const idLogin = response.text().then((message) => {
+            tokenService.save(message);
+            router.push("/logged");
+          });
+        }
+      })
+      .catch((error) => {
+        console.error("Erro ao fazer a requisição:", error);
+        setErro("Erro ao fazer a requisição. Tente novamente mais tarde.");
+      });
   };
 
   const handleChange = (event: any) => {
