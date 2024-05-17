@@ -4,12 +4,13 @@ import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import { tokenService } from "@/services/tokenService";
 import Link from "next/link";
-import User from "./interfaces";
 import "./styles.css";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [senha, setSenha] = useState("");
+  const [values, setValues] = useState({
+    email: "",
+    senha: "",
+  });
   const [erro, setErro] = useState("");
   const router = useRouter();
 
@@ -20,7 +21,7 @@ const Login = () => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ email: email, senha: senha }),
+      body: JSON.stringify(values),
     });
 
     if (!response.ok) {
@@ -41,11 +42,15 @@ const Login = () => {
     }
   };
 
-  const emailChange = (event: any) => {
-    setEmail(event.target.value);
-  };
-  const senhaChange = (event: any) => {
-    setSenha(event.target.value);
+  const handleChange = (event: any) => {
+    const fieldValue = event.target.value;
+    const fieldName = event.target.name;
+    setValues((currentValues) => {
+      return {
+        ...currentValues,
+        [fieldName]: fieldValue,
+      };
+    });
   };
 
   return (
@@ -56,8 +61,8 @@ const Login = () => {
         <div>
           <label htmlFor="email">Email</label>
           <input
-            id="email"
-            onChange={emailChange}
+            name="email"
+            onChange={handleChange}
             type="email"
             className="border-2"
           />
@@ -65,8 +70,8 @@ const Login = () => {
         <div>
           <label htmlFor="senha">Senha</label>
           <input
-            id="senha"
-            onChange={senhaChange}
+            name="senha"
+            onChange={handleChange}
             type="password"
             className="border-2"
           />

@@ -6,18 +6,15 @@ import { tokenService } from "@/services/tokenService";
 import { useRouter } from "next/navigation";
 
 const Cadastro = () => {
-  const [nome, setNome] = useState("");
-  const [email, setEmail] = useState("");
-  const [senha, setSenha] = useState("");
-  const [telefone, setTelefone] = useState("");
-  const [empresa, setEmpresa] = useState("");
+  const [values, setValues] = useState({
+    nome: "",
+    telefone: "",
+    empresa: "",
+    email: "",
+    senha: "",
+  });
   const [resposta, setResposta] = useState("");
   const [erro, setErro] = useState("");
-  const [className, setClassName] = useState("");
-  const [classEmail, setClassEmail] = useState("");
-  const [classSenha, setClassSenha] = useState("");
-  const [classTelefone, setClassTelefone] = useState("");
-  const [classEmpresa, setClassEmpresa] = useState("");
   const router = useRouter();
   const handleClick = async () => {
     setErro("");
@@ -28,20 +25,13 @@ const Cadastro = () => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        email: email,
-        empresa: empresa,
-        nome: nome,
-        senha: senha,
-        telefone: telefone,
-      }),
+      body: JSON.stringify(values),
     });
     if (!response.ok) {
       let message;
 
       try {
         message = await response.text();
-        //  if(message.)
         console.log(message);
         setErro(message);
       } catch (error) {
@@ -54,7 +44,7 @@ const Cadastro = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email: email, senha: senha }),
+        body: JSON.stringify({ email: values.email, senha: values.senha }),
       });
       const idLogin = await response.text();
       const token = idLogin.toString();
@@ -63,45 +53,15 @@ const Cadastro = () => {
     }
   };
 
-  const nomeChange = (event: any) => {
-    if (event.target.value.length < 4) {
-      setClassName("valueError");
-    } else {
-      setClassName("valueSucess");
-    }
-    setNome(event.target.value);
-  };
-  const emailChange = (event: any) => {
-    // if(event.target.value.contains("@")){
-    //   setClassEmail("valueError")
-    // }else{
-    //   setClassEmail("valueSucess")
-    // }
-    setEmail(event.target.value);
-  };
-  const senhaChange = (event: any) => {
-    // if(event.target.value.length < 4){
-    //   setClassSenha("valueError")
-    // }else{
-    //   setClassSenha("valueSucess")
-    // }
-    setSenha(event.target.value);
-  };
-  const telefoneChange = (event: any) => {
-    // if(event.target.value.length < 4){
-    //   setClassTelefone("valueError")
-    // }else{
-    //   setClassTelefone("valueSucess")
-    // }
-    setTelefone(event.target.value);
-  };
-  const empresaChange = (event: any) => {
-    // if(event.target.value.length < 4){
-    //   setClassEmpresa("valueError")
-    // }else{
-    //   setClassEmpresa("valueSucess")
-    // }
-    setEmpresa(event.target.value);
+  const handleChange = (event: any) => {
+    const fieldValue = event.target.value;
+    const fieldName = event.target.name;
+    setValues((currentValues) => {
+      return {
+        ...currentValues,
+        [fieldName]: fieldValue,
+      };
+    });
   };
 
   return (
@@ -111,49 +71,24 @@ const Cadastro = () => {
         <h1>Criar cadastro</h1>
         <div className="form">
           <div>
-            <label htmlFor="name">Nome</label>
-            <input
-              id="name"
-              onChange={nomeChange}
-              type="text"
-              className={className}
-            />
+            <label htmlFor="nome">Nome</label>
+            <input name="nome" onChange={handleChange} type="text" />
           </div>
           <div>
             <label htmlFor="email">Email</label>
-            <input
-              id="email"
-              onChange={emailChange}
-              type="email"
-              className={classEmail}
-            />
+            <input name="email" onChange={handleChange} type="email" />
           </div>
           <div>
             <label htmlFor="senha">Senha</label>
-            <input
-              id="senha"
-              onChange={senhaChange}
-              type="password"
-              className={classSenha}
-            />
+            <input name="senha" onChange={handleChange} type="password" />
           </div>
           <div>
             <label htmlFor="telefone">Telefone</label>
-            <input
-              id="telefone"
-              onChange={telefoneChange}
-              type="text"
-              className={classTelefone}
-            />
+            <input name="telefone" onChange={handleChange} type="text" />
           </div>
           <div>
             <label htmlFor="empresa">Empresa</label>
-            <input
-              id="empresa"
-              onChange={empresaChange}
-              type="text"
-              className={classEmpresa}
-            />
+            <input name="empresa" onChange={handleChange} type="text" />
           </div>
           <button onClick={handleClick} className="bg-slate-500 p-2">
             Enviar

@@ -13,11 +13,13 @@ function Logged(props: any) {
   const [userTelefone, setUserTelefone] = useState(null);
   const [userEmail, setUserEmail] = useState(null);
   const router = useRouter();
-  const [nome, setNome] = useState("");
-  const [email, setEmail] = useState("");
-  const [senha, setSenha] = useState("");
-  const [telefone, setTelefone] = useState("");
-  const [empresa, setEmpresa] = useState("");
+  const [values, setValues] = useState({
+    nome: "",
+    telefone: "",
+    empresa: "",
+    email: "",
+    senha: "",
+  });
   const [resposta, setResposta] = useState("");
   const [erro, setErro] = useState("");
 
@@ -32,13 +34,7 @@ function Logged(props: any) {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          email: email,
-          empresa: empresa,
-          nome: nome,
-          senha: senha,
-          telefone: telefone,
-        }),
+        body: JSON.stringify(values),
       }
     );
     if (!response.ok) {
@@ -110,20 +106,15 @@ function Logged(props: any) {
     setPopupClass();
     setClassPopupDelete("popup");
   };
-  const nomeChange = (event: any) => {
-    setNome(event.target.value);
-  };
-  const emailChange = (event: any) => {
-    setEmail(event.target.value);
-  };
-  const senhaChange = (event: any) => {
-    setSenha(event.target.value);
-  };
-  const telefoneChange = (event: any) => {
-    setTelefone(event.target.value);
-  };
-  const empresaChange = (event: any) => {
-    setEmpresa(event.target.value);
+  const handleChange = (event: any) => {
+    const fieldValue = event.target.value;
+    const fieldName = event.target.name;
+    setValues((currentValues) => {
+      return {
+        ...currentValues,
+        [fieldName]: fieldValue,
+      };
+    });
   };
   const deleteUser = async () => {
     const response = await fetch(
@@ -168,11 +159,11 @@ function Logged(props: any) {
           </div>
           <div className="popup-content">
             <div>
-              <label htmlFor="name">Nome</label>
+              <label htmlFor="nome">Nome</label>
               <input
-                id="name"
+                name="nome"
                 type="text"
-                onChange={nomeChange}
+                onChange={handleChange}
                 className="border-2"
               />
             </div>
@@ -180,36 +171,36 @@ function Logged(props: any) {
             <div>
               <label htmlFor="telefone">Telefone</label>
               <input
-                id="telefone"
+                name="telefone"
                 type="text"
-                onChange={telefoneChange}
+                onChange={handleChange}
                 className="border-2"
               />
             </div>
             <div>
               <label htmlFor="empresa">Empresa</label>
               <input
-                id="empresa"
+                name="empresa"
                 type="text"
-                onChange={empresaChange}
+                onChange={handleChange}
                 className="border-2"
               />
             </div>
             <div>
               <label htmlFor="email">Email</label>
               <input
-                id="email"
+                name="email"
                 type="email"
-                onChange={emailChange}
+                onChange={handleChange}
                 className="border-2"
               />
             </div>
             <div>
               <label htmlFor="senha">Senha</label>
               <input
-                id="senha"
+                name="senha"
                 type="password"
-                onChange={senhaChange}
+                onChange={handleChange}
                 className="border-2"
               />
             </div>
