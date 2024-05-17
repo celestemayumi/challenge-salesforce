@@ -2,6 +2,8 @@
 import { useState } from "react";
 import Link from "next/link";
 import "./styles.css";
+import { tokenService } from "@/services/tokenService";
+import { useRouter } from "next/navigation";
 
 const Cadastro = () => {
   const [nome, setNome] = useState("");
@@ -16,7 +18,7 @@ const Cadastro = () => {
   const [classSenha, setClassSenha] = useState("");
   const [classTelefone, setClassTelefone] = useState("");
   const [classEmpresa, setClassEmpresa] = useState("");
-
+  const router = useRouter();
   const handleClick = async () => {
     setErro("");
     setResposta("");
@@ -47,17 +49,17 @@ const Cadastro = () => {
         message = "Erro desconhecido ao processar a resposta do servidor.";
       }
     } else {
-      let message;
-
-      try {
-        message = await response.text();
-        //  if(message.)
-        console.log(message);
-        setResposta(message);
-      } catch (error) {
-        console.error("Erro ao ler o corpo da resposta:", error);
-        message = "Erro desconhecido ao processar a resposta do servidor.";
-      }
+      const response = await fetch("http://localhost:8080/login", {
+        method: "post",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email: email, senha: senha }),
+      });
+      const idLogin = await response.text();
+      const token = idLogin.toString();
+      tokenService.save(token);
+      router.push("/logged");
     }
   };
 
