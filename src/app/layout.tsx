@@ -5,7 +5,7 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import VLibras from "react-vlibras";
 import ScreenReader from '../components/ScreenReader';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 
 
@@ -16,8 +16,21 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [isScreenReaderActive, setScreenReaderActive] = useState(false);
 
   const toggleScreenReader = () => {
-    setScreenReaderActive(!isScreenReaderActive);
+    setScreenReaderActive((prevState) => !prevState);
   };
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.ctrlKey && event.altKey && event.key === 'Z') {
+        toggleScreenReader();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
 
   return (
     <html lang="en">
