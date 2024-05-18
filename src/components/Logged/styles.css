@@ -1,0 +1,125 @@
+.logged{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #00a2e1;
+}
+
+.options{
+    width: 70%;
+    height: 110%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #04338F;
+    padding: 20px ;
+    border-radius: 30px;
+    margin: 35px;
+}
+.options h1{
+    font-size: 30px;
+    color: white;
+    margin: 30px;
+    text-align: center;
+}
+.options button{
+    color: white;
+    border-radius: 5px;
+    background-color: rgb(103, 161, 232);
+    margin: 15px;
+    width: 20rem;
+    height: 3rem;
+
+}
+.options button:hover{
+    background-color:  rgb(93, 145, 208);
+}
+.logged .sair{
+    background-color: rgb(237, 69, 69);
+    width: 16em;
+
+}
+.logged .sair:hover{
+    background-color: rgb(171, 61, 61);
+}
+.logged .popup-close button{
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    cursor: pointer;
+}
+.popup-wrapper{
+    background-color: rgba(0, 0, 0, .5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.none{
+    display: none;
+}
+.popup{
+    width: 100%;
+    max-width: 300px;
+    margin: 10% auto;
+    padding: 25px;
+    background: white;
+    position: relative;
+    border-radius: 2%;
+}
+.button-delete{
+    margin-top: 1em;
+    border: 1px solid silver;
+    border-radius: 5%;
+    padding: 0.4em 0.8em;
+    width: 70%;
+    color: white;
+    background-color:  rgb(103, 161, 232);
+}
+.button-delete:hover{
+    background-color:  rgb(93, 145, 208);
+}
+#popup-delete{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#popup-delete p{
+    padding: 0.6em;
+}
+.popup-close{
+    font-family: 'arial';
+    color: rgb(242, 52, 52);
+    font-size: 20px;
+}
+.button-update{
+    margin: 1em;
+    border: 1px solid silver;
+    border-radius: 5%;
+    padding: 0.6em 2.3em;
+    color: white;
+    background-color:  rgb(103, 161, 232);
+}
+.button-update:hover{
+    background-color:  rgb(93, 145, 208);
+}
+.popup-content label{
+    margin: 5px;
+}
+.popup-content input{
+    outline: none;
+    border-radius: 10px;
+    padding: 6px 25px;
+}
+.div-button-update{
+    display: flex;
+    justify-content: center;
+}
+.error{
+    color: red;
+}
+.success{
+    color: green;
+}

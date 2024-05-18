@@ -1,70 +1,69 @@
 "use client";
 import { useState } from "react";
+import Link from "next/link";
 import "./styles.css";
+import { tokenService } from "@/services/tokenService";
+import { useRouter } from "next/navigation";
 
 const Cadastro = () => {
-  const [nome, setNome] = useState("");
-  const [email, setEmail] = useState("");
-  const [senha, setSenha] = useState("");
-  const [telefone, setTelefone] = useState("");
-  const [empresa, setEmpresa] = useState("");
+  const [values, setValues] = useState({
+    nome: "",
+    telefone: "",
+    empresa: "",
+    email: "",
+    senha: "",
+  });
   const [resposta, setResposta] = useState("");
   const [erro, setErro] = useState("");
-
-
-  const handleClick = async () => {
+  const router = useRouter();
+  const handleClick = () => {
     setErro("");
     setResposta("");
 
-    const response = await fetch("http://localhost:8080/users", {
-        method: "post",
-        headers: {
-            "Content-Type": "application/json"
-          },
-        body: JSON.stringify({ email: email, empresa: empresa , nome: nome, senha: senha, telefone: telefone})
-      });
-      if(!response.ok){
-        let message;
-
-        try {
-          message = await response.text();
-        //  if(message.)
-            console.log(message);
+    fetch("http://localhost:8080/users", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(values),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          return response.text().then((message) => {
             setErro(message);
-        } catch (error) {
-            console.error("Erro ao ler o corpo da resposta:", error);
-            message = "Erro desconhecido ao processar a resposta do servidor.";
+          });
+        } else {
+          fetch("http://localhost:8080/login", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              email: values.email,
+              senha: values.senha,
+            }),
+          }).then((response) => {
+            const idLogin = response.text().then((message) => {
+              tokenService.save(message);
+              router.push("/logged");
+            });
+          });
         }
-      }else{
-        let message;
-
-        try {
-          message = await response.text();
-        //  if(message.)
-            console.log(message);
-            setResposta(message);
-        } catch (error) {
-            console.error("Erro ao ler o corpo da resposta:", error);
-            message = "Erro desconhecido ao processar a resposta do servidor.";
-        }
-      }
-      
+      })
+      .catch((error) => {
+        console.error("Erro ao fazer a requisição:", error);
+        setErro("Erro ao fazer a requisição. Tente novamente mais tarde.");
+      });
   };
-
-  const nomeChange = (event: any) => {
-    setNome(event.target.value);
-  };
-  const emailChange = (event: any) => {
-    setEmail(event.target.value);
-  };
-  const senhaChange = (event: any) => {
-    setSenha(event.target.value);
-  };
-  const telefoneChange = (event: any) => {
-    setTelefone(event.target.value);
-  };
-  const empresaChange = (event: any) => {
-    setEmpresa(event.target.value);
+  const handleChange = (event: any) => {
+    const fieldValue = event.target.value;
+    const fieldName = event.target.name;
+    setValues((currentValues) => {
+      return {
+        ...currentValues,
+        [fieldName]: fieldValue,
+      };
+    });
   };
 
   return (
@@ -72,32 +71,36 @@ const Cadastro = () => {
       <div></div>
       <div className="cadastro">
         <h1>Criar cadastro</h1>
-        <div>
-      <label htmlFor="name">Nome</label>
-      <input id = "name" onChange={nomeChange} type="text" className="border-2" />
-      </div>
-     <div>
-      <label htmlFor="email">Email</label>
-      <input id = "email" onChange={emailChange} type="text" className="border-2" />
-      </div>
-      <div>
-      <label htmlFor="senha">Senha</label>
-      <input id = "senha" onChange={senhaChange} type="password" className="border-2" />
-      </div>
-      <div>
-      <label htmlFor="telefone">Telefone</label>
-      <input id = "telefone" onChange={telefoneChange} type="text" className="border-2" />
-      </div>
-      <div>
-      <label htmlFor="empresa">Empresa</label>
-      <input id = "empresa" onChange={empresaChange} type="text" className="border-2" />
-      </div>
-      <button  onClick={handleClick} 
-      className="bg-slate-500 p-2">
-        Enviar
-      </button>
-      {erro && <p className="error">{erro}</p>}
-      {resposta && <p className="success">{resposta}</p>}
+        <div className="form">
+          <div>
+            <label htmlFor="nome">Nome</label>
+            <input name="nome" onChange={handleChange} type="text" />
+          </div>
+          <div>
+            <label htmlFor="email">Email</label>
+            <input name="email" onChange={handleChange} type="email" />
+          </div>
+          <div>
+            <label htmlFor="senha">Senha</label>
+            <input name="senha" onChange={handleChange} type="password" />
+          </div>
+          <div>
+            <label htmlFor="telefone">Telefone</label>
+            <input name="telefone" onChange={handleChange} type="text" />
+          </div>
+          <div>
+            <label htmlFor="empresa">Empresa</label>
+            <input name="empresa" onChange={handleChange} type="text" />
+          </div>
+          <button onClick={handleClick} className="bg-slate-500 p-2">
+            Enviar
+          </button>
+        </div>
+        <div className="link-login">
+          <Link href="/login">Já possui conta?</Link>
+        </div>
+        {erro && <p className="error">{erro}</p>}
+        {resposta && <p className="success">{resposta}</p>}
       </div>
       <div></div>
     </div>
