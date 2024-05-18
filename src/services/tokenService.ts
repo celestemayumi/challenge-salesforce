@@ -16,10 +16,6 @@ export const tokenService = {
   },
   get(ctx = null) {
     const cookies = nookies.get(ctx);
-    console.log("cookies", cookies)
-    if(cookies[ACCESS_TOKEN_KEY].length<1){
-      throw new Error("not logged");
-    }
     return cookies[ACCESS_TOKEN_KEY] ;
   
 

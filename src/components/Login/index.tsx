@@ -13,6 +13,13 @@ const Login = () => {
   });
   const [erro, setErro] = useState("");
   const router = useRouter();
+  
+  useEffect(() => {
+    const token = tokenService.get();
+    if (token) {
+      router.push("/logged");
+    }
+  }, []);
 
   const handleSubmit = async () => {
     setErro("");
