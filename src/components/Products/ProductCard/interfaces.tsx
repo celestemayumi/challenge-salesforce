@@ -1,7 +1,7 @@
-interface ProductCard {
+interface ProductCardType {
     image: string;
     title: string;
     desc: string;
 }
 
-export default ProductCard
+export default ProductCardType
