@@ -123,3 +123,6 @@
 .success{
     color: green;
 }
+@media (min-width: 0px) and (max-width: 1107px){
+    .options{width: 100%;}
+}
