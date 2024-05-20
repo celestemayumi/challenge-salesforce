@@ -3,6 +3,7 @@ import CustomerProps from "./interfaces";
 import Image from "next/image";
 
 const CustomerCard = (props: CustomerProps) => {
+
   return (
     <>
       <div className="blue-cloud">
