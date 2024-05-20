@@ -4,7 +4,6 @@
     background-size: contain;
     display: flex;
     padding: 2em;
-
 }
 
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
@@ -15,19 +14,23 @@
     font-weight: 700;
     font-family: 'DM Sans', sans-serif;
     color: #F5F5F5;
+    
 }
 
 .blue-cloud p {
     font-family: 'DM Sans', sans-serif;
     color: #F5F5F5;
+    font-size: 1.6em;
+    margin-top: 0.5em;
 }
 
 .blue-cloud p.a {
     font-family: 'DM Sans', sans-serif;
     color: #F5F5F5;
     font-size: large;
-    margin-top: 10px;
+    margin-top: 15px;
 }
+
 
 @media (max-width: 962px) {
     .blue-cloud {

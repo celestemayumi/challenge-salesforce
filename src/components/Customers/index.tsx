@@ -17,14 +17,14 @@ const Customers = () => {
       <div className="customer-box">
         <CustomerCard
             desc = {infoCard.desc}
-            author={infoCard.author}
-            image={infoCard.image}
+            author = {infoCard.author}
+            image = {infoCard.image}
         ></CustomerCard>
         
         <div className="slider">
           <button className="bar" onClick={() => changeCustomerCards(0)}>Gympass</button>
-          <button className="bar" onClick={() => changeCustomerCards(1)}>Inter</button>
-          <button className="bar" onClick={() => changeCustomerCards(2)}>iFood</button>
+          <button className="bar" onClick={() => changeCustomerCards(1)}>Embraer</button>
+          <button className="bar ifood" onClick={() => changeCustomerCards(2)}>EBANX</button>
           <button className="bar" onClick={() => changeCustomerCards(3)}>Grupo Tigre</button>
         </div>
       </div>
