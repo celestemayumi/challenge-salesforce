@@ -78,10 +78,6 @@
 .success{
     color: green;
 }
-.valueError:focus {
-    border:1px solid red;
-}
-.valueSucess:focus{  
-    border:1px solid green;
-
+@media (min-width: 0px) and (max-width: 1107px){
+    .cadastro{width: 100%;}
 }
